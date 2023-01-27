@@ -5,11 +5,9 @@
 std::string b64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 std::string b64_encode(std::string input) {
     // converts input to 8 bit bytes and stores it in buffer
-    std::string buffer;
-    std::string output;
+    std::string buffer, output;
     for(auto &ch:input) {
-        std::bitset<8>byte(ch); 
-        buffer+=byte.to_string();
+        buffer+=std::bitset<8>(ch).to_string();
     }
     // pads buffer so its len%6==0
     int rem=6-(buffer.length()%6);
@@ -36,14 +34,12 @@ std::string b64_encode(std::string input) {
     return output;
 }
 std::string b64_decode(std::string input) {
-    std::string buffer;
-    std::string output;
+    std::string buffer, output;
     // convert base64 char to binary and then concat onto buffer
     for(auto &ch:input) {
         for(int i=0;i<b64Alphabet.length();++i) {
             if((char)b64Alphabet[i]==ch) {
-                std::bitset<6>byte(i);
-                buffer+=byte.to_string();
+                buffer+=std::bitset<6>(i).to_string();
             }
         }
     }
