@@ -1,0 +1,7 @@
+TODO:
+    - Implement a decode function
+    - Reimplement header as a module (c++ 20)
+
+COMPLETED:
+    - Add the padding char
+    - refactor dec to bit conversion with bitsets
