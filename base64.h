@@ -1,5 +1,4 @@
 #include <bitset>
-#include <algorithm>
 #include <string>
 #include <vector>
 std::string b64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
