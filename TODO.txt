@@ -2,6 +2,7 @@ TODO:
     - Reimplement header as a module (c++ 20)
 
 COMPLETED:
+    - Fix padding
     - Refactor loops
     - Add the padding char
     - refactor dec to bit conversion with bitsets

@@ -1,8 +1,10 @@
 #include <bitset>
+#include <algorithm>
 #include <string>
 #include <vector>
 std::string b64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 std::string b64_encode(std::string input) {
+    if(input.empty()) return "";
     std::string buffer, output;
     // converts input to 8 bit bytes and stores it in buffer
     for (char ch : input) { buffer += std::bitset<8>(ch).to_string(); }
@@ -15,7 +17,7 @@ std::string b64_encode(std::string input) {
         output += b64Alphabet[std::bitset<6>(element).to_ulong()];
     }
     // adds padding
-    output.resize(output.length() + 3 - (input.length() % 3), '=');
+    output.resize(output.length() + (input.length() % 3 == 0 ? 0 : 3 - (input.length() % 3)), '=');
     return output;
 }
 std::string b64_decode(std::string input) {
